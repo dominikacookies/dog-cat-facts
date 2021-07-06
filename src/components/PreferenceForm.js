@@ -2,7 +2,7 @@ import React from "react"
 
 const PreferenceForm = (props) => {
   return (
-    <form>
+    <form onSubmit={props.onSubmit}>
       <div className="input-group mb-3">
         <input type="input" className="form-control" placeholder="Name" aria-label="Example text with two button addons"/>
         <button className="btn btn-success" type="button" id="dog" onClick={props.selectAnimal}>Dogs</button>

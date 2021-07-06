@@ -30,12 +30,17 @@ class App extends Component {
     }
   }
 
+  showAnimalFact = (event) => {
+    event.preventDefault()
+    console.log("fact")
+  }
+
   render() {
     return (
       <section className="main-container">
         <div className="content">
           <h1> Hello </h1> 
-          <PreferenceForm selectAnimal={this.selectAnimal}/>
+          <PreferenceForm selectAnimal={this.selectAnimal} onSubmit={this.showAnimalFact}/>
         </div>
     </section>
     )
