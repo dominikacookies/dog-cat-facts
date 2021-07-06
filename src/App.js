@@ -13,9 +13,21 @@ class App extends Component {
   }
 
   selectAnimal = (event) => {
+    const targetButton = event.target
     this.setState({
-      animal: event.target.id
+      animal: targetButton.id
     })
+
+    targetButton.classList.remove("btn-outline-success")
+    targetButton.classList.add("btn-success")
+
+    if (targetButton.id === "cat") {
+      targetButton.previousSibling.classList.remove("btn-success")
+      targetButton.previousSibling.classList.add("btn-outline-success")
+    } else {
+      targetButton.nextSibling.classList.remove("btn-success")
+      targetButton.nextSibling.classList.add("btn-outline-success")
+    }
   }
 
   render() {
