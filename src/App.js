@@ -1,4 +1,5 @@
 import { Component } from "react";
+import $ from "jquery"
 
 import WelcomeScreen from "./components/WelcomeScreen";
 import AnimalFactScreen from "./components/AnimalFactScreen";
@@ -37,8 +38,19 @@ class App extends Component {
   showAnimalFactScreen = (event) => {
     event.preventDefault()
 
+    const name = document.getElementById("name").value
+
+    console.log(name)
+
+    if (!name) {
+      $(event.target).append(`
+      <p class="pt-2 error-message"> Don't be shy! Please enter your name to see a fact. </p>
+      `)
+      return 
+    }
+
     this.setState({
-      name: document.getElementById("name").value,
+      name,
       displayWelcomeScreen: false,
       displayAnimalFactScreen: true
     })
