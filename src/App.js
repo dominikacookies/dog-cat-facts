@@ -1,6 +1,7 @@
 import { Component } from "react";
 
 import WelcomeScreen from "./components/WelcomeScreen";
+import AnimalFactScreen from "./components/AnimalFactScreen";
 
 
 class App extends Component {
@@ -50,6 +51,10 @@ class App extends Component {
           <h1> Hey {this.state.name}!</h1> 
           {this.state.displayWelcomeScreen && (
             <WelcomeScreen selectAnimal={this.selectAnimal} onSubmit={this.showAnimalFactScreen}/>
+          )}
+
+          {this.state.displayAnimalFactScreen && (
+            <AnimalFactScreen animal={this.state.animal} />
           )}
         </div>
       </section>
