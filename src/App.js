@@ -8,7 +8,9 @@ class App extends Component {
     super (props);
 
     this.state = {
-      animal: "dog"
+      animal: "dog",
+      name: "Pal"
+
     }
   }
 
@@ -39,7 +41,9 @@ class App extends Component {
     return (
       <section className="main-container">
         <div className="content">
-          <h1> Hello </h1> 
+          <h1> Hey {this.state.name}!</h1> 
+          <h3> Find fun facts about your favourite animal here :) </h3> 
+          <p> To get started pop in your name and choose if you'd like facts about cats or dogs.</p>
           <PreferenceForm selectAnimal={this.selectAnimal} onSubmit={this.showAnimalFact}/>
         </div>
     </section>
