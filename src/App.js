@@ -1,5 +1,8 @@
 import { Component } from "react";
 
+import PreferenceForm from "./components/PreferenceForm";
+
+
 class App extends Component {
   constructor(props) {
     super (props);
@@ -7,7 +10,12 @@ class App extends Component {
 
   render() {
     return (
-          <h1> Hello</h1> 
+      <section className="main-container">
+        <div className="content">
+          <h1> Hello </h1> 
+          <PreferenceForm />
+        </div>
+    </section>
     )
   }
 }
