@@ -1,6 +1,6 @@
 import { Component } from "react";
 
-import PreferenceForm from "./components/PreferenceForm";
+import WelcomeScreen from "./components/WelcomeScreen";
 
 
 class App extends Component {
@@ -8,11 +8,12 @@ class App extends Component {
     super (props);
 
     this.state = {
+      displayWelcomeScreen: true,
+      displayAnimalFactScreen: false,
       animal: "dog",
       name: "Pal"
-
     }
-  }
+  };
 
   selectAnimal = (event) => {
     const targetButton = event.target
@@ -30,25 +31,30 @@ class App extends Component {
       targetButton.nextSibling.classList.remove("btn-success")
       targetButton.nextSibling.classList.add("btn-outline-success")
     }
-  }
+  };
 
-  showAnimalFact = (event) => {
+  showAnimalFactScreen = (event) => {
     event.preventDefault()
-    console.log("fact")
-  }
+
+    this.setState({
+      name: document.getElementById("name").value,
+      displayWelcomeScreen: false,
+      displayAnimalFactScreen: true
+    })
+  };
 
   render() {
     return (
       <section className="main-container">
         <div className="content">
           <h1> Hey {this.state.name}!</h1> 
-          <h3> Find fun facts about your favourite animal here :) </h3> 
-          <p> To get started pop in your name and choose if you'd like facts about cats or dogs.</p>
-          <PreferenceForm selectAnimal={this.selectAnimal} onSubmit={this.showAnimalFact}/>
+          {this.state.displayWelcomeScreen && (
+            <WelcomeScreen selectAnimal={this.selectAnimal} onSubmit={this.showAnimalFactScreen}/>
+          )}
         </div>
-    </section>
+      </section>
     )
-  }
+  };
 }
 
 export default App;
