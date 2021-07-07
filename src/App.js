@@ -23,15 +23,15 @@ class App extends Component {
       animal: targetButton.id
     })
 
-    targetButton.classList.remove("btn-outline-success")
-    targetButton.classList.add("btn-success")
+    targetButton.classList.remove("secondary-button")
+    targetButton.classList.add("primary-button")
 
     if (targetButton.id === "cat") {
-      targetButton.previousSibling.classList.remove("btn-success")
-      targetButton.previousSibling.classList.add("btn-outline-success")
+      targetButton.previousSibling.classList.remove("primary-button")
+      targetButton.previousSibling.classList.add("secondary-button")
     } else {
-      targetButton.nextSibling.classList.remove("btn-success")
-      targetButton.nextSibling.classList.add("btn-outline-success")
+      targetButton.nextSibling.classList.remove("primary-button")
+      targetButton.nextSibling.classList.add("secondary-button")
     }
   };
 

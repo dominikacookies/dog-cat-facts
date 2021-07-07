@@ -22,6 +22,10 @@ body {
   color: white
 }
 
+.primary-button:hover {
+  color: white
+}
+
 .secondary-button {
   color: #2D0E00;
   background-color: none;
