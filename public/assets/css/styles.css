@@ -1,3 +1,9 @@
+body {
+  background-image: linear-gradient(to bottom, #fbf7ec, #f6efe0, #f1e7d4, #eddec8, #e9d6bd);
+  height: 100vh;
+  color: #2D0E00
+}
+
 .main-container {
   height: 100vh;
   position: relative;
@@ -9,6 +15,18 @@
   top: 45%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.primary-button {
+  background-color: #2D0E00;
+  color: white
+}
+
+.secondary-button {
+  color: #2D0E00;
+  background-color: none;
+  border-width: 0.5px;
+  border-color: #2D0E00;
 }
 
 .error-message {
