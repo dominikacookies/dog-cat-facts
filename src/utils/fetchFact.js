@@ -14,8 +14,9 @@ const fetchDogFact = async () => {
   try {
     const { data } = await axios.get("https://cors-anywhere.herokuapp.com/https://dog-facts-api.herokuapp.com/api/v1/resources/dogs?number=1",
      {headers: {"Access-Control-Allow-Origin" : "*", 'Access-Control-Allow-Credentials':true}});
+     console.log(data)
      return data[0].fact;
-     
+
   } catch (error) {
     return { error: "Failed to fetch data." };
   }
