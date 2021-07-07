@@ -8,26 +8,64 @@ class AnimalFactScreen extends Component {
 
     this.state = {
       isLoading: true,
-      data: null,
+      fact: null,
+      error: null
     }
   }
 
   async componentDidMount() {
+    // reset states after mounting
+    this.setState({
+      isLoading: true,
+      fact: null,
+      error: null
+    });
+
     const animal = document.getElementById("dog")
-    const animalFact = (!animal) ? 
+
+    // get fact from third party API
+    const fact = (!animal) ? 
       await fetchCatFact() 
       : await fetchDogFact()
-      
-    console.log(animalFact)
+
+    if (fact.error) {
+      this.setState({
+        isLoading: false,
+        error: true
+      })
+    } else {
+      this.setState({
+        fact,
+        isLoading: false,
+      });
+    }
 
   }
 
   render() {
     return (
-      <div id={this.props.animal} >
-        <h3>
-          Here's your fun fact about {this.props.animal}s:
-        </h3>
+      <div id={this.props.animal}>
+        {this.state.isLoading && (
+          <div >
+            <h3>We're just getting your fact.</h3>
+            <div className="spinner-border" role="status">
+              <span className="visually-hidden">Loading...</span>
+            </div>
+          </div>
+        )}
+        {this.state.error && (
+          <h3>Sorry, something has gone wrong! </h3>
+        )}
+        {this.state.fact && (
+          <div> 
+            <h3>
+              Here's your fun fact about {this.props.animal}s:
+            </h3>
+            <p>
+              {this.state.fact}
+            </p>
+          </div>
+        )}
 
       </div>
     )
