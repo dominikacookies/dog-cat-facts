@@ -41,6 +41,7 @@ class App extends Component {
     const name = document.getElementById("name").value
 
     if (!name) {
+      $(".error-message").remove()
       $(event.target).append(`
       <p class="pt-2 error-message"> Keeping things secret? We like your style! But to get your cool fact, please enter a name. </p>
       `)
