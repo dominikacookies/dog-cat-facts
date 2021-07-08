@@ -1,5 +1,6 @@
 import { Component } from "react";
 
+import NewFactButton from "./NewFactButton";
 import {fetchCatFact, fetchDogFact} from "../utils/fetchFact";
 
 class AnimalFactScreen extends Component {
@@ -13,33 +14,36 @@ class AnimalFactScreen extends Component {
     }
   }
 
-  async componentDidMount() {
-    // reset states after mounting
-    this.setState({
-      isLoading: true,
-      fact: null,
-      error: null
-    });
+  componentDidMount() {
+    this.presentFact()
+  }
 
-    const animal = document.getElementById("dog")
-
-    // get fact from third party API
-    const fact = (!animal) ? 
-      await fetchCatFact() 
-      : await fetchDogFact()
-
-    if (fact.error) {
-      this.setState({
-        isLoading: false,
-        error: true
-      })
-    } else {
-      this.setState({
-        fact,
-        isLoading: false,
-      });
-    }
-
+  presentFact = async () => {
+        // reset states after mounting
+        this.setState({
+          isLoading: true,
+          fact: null,
+          error: null
+        });
+    
+        const animal = document.getElementById("dog")
+    
+        // get fact from third party API
+        const fact = (!animal) ? 
+          await fetchCatFact() 
+          : await fetchDogFact()
+    
+        if (fact.error) {
+          this.setState({
+            isLoading: false,
+            error: true
+          })
+        } else {
+          this.setState({
+            fact,
+            isLoading: false,
+          });
+        }
   }
 
   render() {
@@ -54,7 +58,10 @@ class AnimalFactScreen extends Component {
           </div>
         )}
         {this.state.error && (
-          <h3>Sorry, something has gone wrong! </h3>
+          <div>
+            <h3>Sorry, something has gone wrong! </h3>
+            <NewFactButton onClick={this.presentFact} />
+          </div>
         )}
         {this.state.fact && (
           <div> 
@@ -64,6 +71,7 @@ class AnimalFactScreen extends Component {
             <p>
               {this.state.fact}
             </p>
+            <NewFactButton onClick={this.presentFact} />
           </div>
         )}
 
