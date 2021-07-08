@@ -3,8 +3,8 @@ import React from "react"
 const WelcomeScreen = (props) => {
   return (
     <div>
-      <h3> Find fun facts about your favourite animal here :) </h3> 
-      <p> To get started pop in your name and choose if you'd like facts about cats or dogs.</p>
+      <h3> Whatever side you choose, get great facts about cats or dogs here :) </h3> 
+      <p> To get started pop in your name and select if you'd like facts about cats or dogs.</p>
       <form onSubmit={props.onSubmit}>
         <div className="input-group mb-3">
           <input type="input" className="form-control" placeholder="Your name" id="name" aria-label="Example text with two button addons"/>
