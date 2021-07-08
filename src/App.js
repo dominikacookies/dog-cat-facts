@@ -44,7 +44,7 @@ class App extends Component {
 
     if (!name) {
       $(event.target).append(`
-      <p class="pt-2 error-message"> Don't be shy! Please enter your name to see a fact. </p>
+      <p class="pt-2 error-message"> Keeping things secret? We like your style! But to get your cool fact, please enter a name. </p>
       `)
       return 
     }
