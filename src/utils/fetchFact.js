@@ -1,6 +1,4 @@
 import axios from "axios";
-import jQuery from "jquery"
-
 
 const fetchCatFact = async () => {
   try {
@@ -14,8 +12,7 @@ const fetchCatFact = async () => {
 
 const fetchDogFact = async () => {
   try {
-
-    const { data } = await axios.get("https://radiant-stream-08604.herokuapp.com/https://dog-api.kinduff.com/api/facts?number=1",
+    const { data } = await axios.get("https://cors-anywhere-dom.herokuapp.com/https://dog-api.kinduff.com/api/facts?number=1",
      {headers: {"Access-Control-Allow-Origin" : "*", 'Access-Control-Allow-Credentials':true}});
     
     console.log(data)
